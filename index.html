@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#09090f">
+  <title>. (dot) vibes</title>
+  <meta name="description" content=". (dot) vibes — audio rooms, reels and social vibes.">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="dot">.</span><span>vibes</span></div>
+    <button class="coin" onclick="showToast('Coins coming soon')">🪙 <b>120</b></button>
+  </header>
+
+  <main>
+    <section id="home" class="screen active">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">WELCOME TO</p>
+          <h1>. (dot) vibes</h1>
+          <p>Meet people. Join rooms. Share your vibe.</p>
+        </div>
+        <button class="primary" onclick="openRoom()">Start a room</button>
+      </div>
+
+      <div class="section-head"><h2>Live rooms</h2><span>See all</span></div>
+      <div class="rooms" id="rooms"></div>
+
+      <div class="section-head"><h2>Trending vibes</h2><span>Popular</span></div>
+      <div class="cards">
+        <article class="vibe-card"><div class="art a1">🎧</div><b>Late Night Music</b><small>2.4K vibes</small></article>
+        <article class="vibe-card"><div class="art a2">✨</div><b>Chill & Talk</b><small>1.8K vibes</small></article>
+        <article class="vibe-card"><div class="art a3">🔥</div><b>Weekend Party</b><small>3.1K vibes</small></article>
+      </div>
+    </section>
+
+    <section id="reels" class="screen">
+      <div class="page-title"><h1>Vibes</h1><button class="round" onclick="showToast('Upload selected')">＋</button></div>
+      <div class="reel">
+        <div class="reel-bg r1">🎵<strong>Feel the vibe</strong></div>
+        <div class="reel-info"><b>@vibecreator</b><p>Good energy only ✨</p><div>❤️ 12.8K &nbsp; 💬 842 &nbsp; ↗ Share</div></div>
+      </div>
+      <div class="reel">
+        <div class="reel-bg r2">🌙<strong>Night vibes</strong></div>
+        <div class="reel-info"><b>@nighttalks</b><p>Who is still awake?</p><div>❤️ 8.4K &nbsp; 💬 311 &nbsp; ↗ Share</div></div>
+      </div>
+    </section>
+
+    <section id="messages" class="screen">
+      <div class="page-title"><h1>Messages</h1><button class="round" onclick="showToast('New message')">✎</button></div>
+      <div class="chat" onclick="openChat('Maya')"><div class="avatar pink">M</div><div><b>Maya</b><p>Hey! Join my room tonight 🎧</p></div><time>2m</time></div>
+      <div class="chat" onclick="openChat('Arjun')"><div class="avatar blue">A</div><div><b>Arjun</b><p>That reel was awesome 🔥</p></div><time>18m</time></div>
+      <div class="chat" onclick="openChat('Riya')"><div class="avatar green">R</div><div><b>Riya</b><p>Let's vibe later!</p></div><time>1h</time></div>
+    </section>
+
+    <section id="profile" class="screen">
+      <div class="profile-head">
+        <div class="big-avatar">S</div>
+        <h1>Surendra</h1><p>@dotvibes_user</p>
+        <div class="stats"><span><b>128</b><small>Following</small></span><span><b>2.4K</b><small>Followers</small></span><span><b>18</b><small>Rooms</small></span></div>
+        <button class="outline" onclick="showToast('Edit profile')">Edit profile</button>
+      </div>
+      <div class="profile-grid"><div>🎙️<b>18</b><small>Rooms</small></div><div>🎬<b>46</b><small>Reels</small></div><div>🎁<b>320</b><small>Gifts</small></div></div>
+    </section>
+  </main>
+
+  <nav class="nav">
+    <button class="navitem active" onclick="go('home',this)">⌂<span>Home</span></button>
+    <button class="navitem" onclick="go('reels',this)">▶<span>Vibes</span></button>
+    <button class="navitem create" onclick="openRoom()">＋</button>
+    <button class="navitem" onclick="go('messages',this)">♡<span>Messages</span></button>
+    <button class="navitem" onclick="go('profile',this)">◉<span>Profile</span></button>
+  </nav>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <button class="close" onclick="closeModal()">×</button>
+      <h2 id="modalTitle">Start a vibe room</h2>
+      <input id="roomName" placeholder="Room name">
+      <button class="primary wide" onclick="createRoom()">Create room</button>
+    </div>
+  </div>
+  <div id="toast"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
